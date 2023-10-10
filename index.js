@@ -14,8 +14,8 @@ const client = new Client({
 await client.connect() //await bc you cant runa query until it's connected to the database, so we tell computer to wait.
 
 // run query 
-const time = await client.query('SELECT NOW()') //This will get the time from the database. Won't save what comes back from the query unless stored in a variable.
-console.log(time.rows[0].now)
+const results = await client.query('SELECT * FROM customers') //This will get the results from the database. Won't save what comes back from the query unless stored in a variable.
+console.table(results.rows)
 
 // close connection
 client.end()
